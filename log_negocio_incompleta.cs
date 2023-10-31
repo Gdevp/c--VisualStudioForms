@@ -52,14 +52,13 @@ namespace pjConexionClase
             // En caso de cualquier error o si el formato no es el esperado, regresa un valor predeterminado.
             return "CON001";
         }
-        //Metodo que registra un nuevo contratista
+        // METODO QUE REGISTRA UN NUEVO CONTRATISTA
         public string nuevoContratista(string codigo, string nombre, string apellido_paterno, string apellido_materno, string telefono, string email)
         {
             mensaje = "";
             cn = objCon.getConecta();
             cn.Open();
             SqlCommand cmd = new SqlCommand("SP_NUEVOCONTRATISTA", cn);
-
             // Agrega los parámetros a la instrucción SQL.
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("ide", SqlDbType.Char).Value = codigo;
@@ -84,7 +83,7 @@ namespace pjConexionClase
             // Devuelve el mensaje.
             return mensaje;
         }
-        //Metodo que actualiza los datos de un equipo
+        // METODO QUE ACTUALIZA LOS DATOS DE UN CONTRATISTA
         public string actualizaContratista(string codigo, string nombre,
             string apellido_paterno, string apellido_materno, string telefono, string email)
         {
@@ -115,7 +114,7 @@ namespace pjConexionClase
             }
             return mensaje;
         }
-        // Metodo qu Elimina un Registro de Equipos 
+        // METODO QUE ELIMINA LOS DATOS DE UN CONTRATISTA
         public string eliminaContratista(string codigo)
         {
             mensaje = "";
